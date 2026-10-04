@@ -1,6 +1,5 @@
 // Dataset contract: which sheets/columns the app needs, plus shared category definitions.
-export const DATA_URL = `${import.meta.env?.BASE_URL ?? "./"}data/banking_data.xlsx`;
-
+export const DATA_URL = `${import.meta.env?.BASE_URL ?? "./"}banking_data.xlsx`;
 export const REQUIRED_SHEETS = {
   Customers: {
     id: 'Customer_ID',
