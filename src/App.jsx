@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import AppLayout from './layouts/AppLayout';
 import { ThemeProvider } from './context/ThemeContext';
 import { DataProvider } from './context/DataContext';
@@ -32,6 +33,7 @@ export default function App() {
             </Route>
           </Routes>
         </HashRouter>
+        <SpeedInsights />
       </DataProvider>
     </ThemeProvider>
   );
