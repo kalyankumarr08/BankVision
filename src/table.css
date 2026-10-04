@@ -1,0 +1,26 @@
+.table-card { padding-bottom: 8px; }
+.table-tools { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.table-tools .search { flex: 1 1 220px; }
+.table-tools .search input { width: 100%; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; max-width: 100%; }
+.table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table th, .table td { padding: 10px 14px; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--border); }
+.table thead th { position: sticky; top: 0; background: var(--surface-2); padding: 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); }
+.table thead th .th-btn { display: inline-flex; align-items: center; gap: 6px; width: 100%; padding: 10px 14px; background: none; border: 0; font: inherit; text-transform: inherit; letter-spacing: inherit; color: inherit; font-weight: 600; }
+.table th.num .th-btn { justify-content: flex-end; }
+.table th .th-btn:hover { color: var(--text); }
+.table td.num, .table th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.table tbody tr:last-child td { border-bottom: 0; }
+.table tbody tr.is-click { cursor: pointer; }
+.table tbody tr:hover { background: var(--surface-2); }
+.table tbody tr:focus-visible { outline-offset: -2px; background: var(--primary-soft); }
+.pager { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 12px 2px 4px; }
+.pager__size { display: inline-flex; align-items: center; gap: 6px; }
+.pager__size select { height: 30px; }
+.pager__pages { display: inline-flex; align-items: center; gap: 4px; }
+.pager__num { min-width: 32px; height: 32px; padding: 0 8px; border-radius: 8px; border: 1px solid transparent; background: none; font-weight: 550; }
+.pager__num:hover { background: var(--surface-2); }
+.pager__num.is-active { background: var(--primary); color: #fff; }
+:root[data-theme='dark'] .pager__num.is-active { color: #0a1020; }
+.pager__gap { color: var(--muted); padding: 0 2px; }
+.pager .icon-btn { width: 32px; height: 32px; border: 1px solid var(--border); }

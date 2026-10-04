@@ -1,0 +1,54 @@
+:root {
+  --font-body: 'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-head: 'Sora Variable', Sora, 'Inter Variable', system-ui, sans-serif;
+
+  --navy: #0b1f4b;
+  --primary: #2563eb;
+  --primary-soft: #e8efff;
+  --teal: #0d9488;
+  --teal-soft: #e0f5f2;
+  --amber: #b45309;
+  --amber-soft: #fef3c7;
+  --red: #dc2626;
+  --red-soft: #fee2e2;
+
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.04);
+
+  --sidebar-bg: #0b1f4b;
+  --sidebar-text: #c7d2ea;
+  --sidebar-active: rgba(45, 212, 191, 0.14);
+  --sidebar-active-text: #5eead4;
+
+  --radius: 12px;
+  --header-h: 60px;
+  --sidebar-w: 232px;
+  --ease: 160ms ease;
+}
+
+:root[data-theme='dark'] {
+  --primary: #60a5fa;
+  --primary-soft: #16264a;
+  --teal: #2dd4bf;
+  --teal-soft: #0f2f33;
+  --amber: #fbbf24;
+  --amber-soft: #3a2b0a;
+  --red: #f87171;
+  --red-soft: #3b1618;
+
+  --bg: #0a1020;
+  --surface: #111a2e;
+  --surface-2: #0f1729;
+  --border: #233049;
+  --text: #e6ecf5;
+  --muted: #94a3b8;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+
+  --sidebar-bg: #0d1426;
+  --sidebar-text: #a9b6d0;
+}
