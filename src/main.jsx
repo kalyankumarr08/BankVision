@@ -7,6 +7,7 @@ import './styles/base.css';
 import './styles/layout.css';
 import './styles/components.css';
 import './styles/table.css';
+import './styles/import.css';
 import './styles/print.css';
 import App from './App';
 
