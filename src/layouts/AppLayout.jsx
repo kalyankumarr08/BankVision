@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import BottomNav from '../components/BottomNav';
 import FilterBar from '../components/FilterBar';
+import DataSourceBar from '../components/DataSourceBar';
 import PageSkeleton from '../components/LoadingSkeleton';
 import { useData } from '../context/DataContext';
 import { FilterProvider } from '../context/FilterContext';
@@ -58,6 +59,8 @@ function Shell({ children }) {
 
 export default function AppLayout() {
   const { status, error, reload } = useData();
+  const { pathname } = useLocation();
+  const onImport = pathname === '/import';
   return (
     <FilterProvider>
       <DrillProvider>
@@ -68,7 +71,8 @@ export default function AppLayout() {
             <PageSkeleton />
           ) : (
             <>
-              <FilterBar />
+              {!onImport && <DataSourceBar />}
+              {!onImport && <FilterBar />}
               <Suspense fallback={<PageSkeleton />}>
                 <Outlet />
               </Suspense>
