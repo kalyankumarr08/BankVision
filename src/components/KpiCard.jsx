@@ -4,9 +4,9 @@ import { useCountUp } from '../hooks/useCountUp';
 import { inrCompact, num, pct } from '../utils/format';
 import Sparkline from './Sparkline';
 
-const FORMATTERS = { number: num, inr: (v) => inrCompact(v), pct: (v) => pct(v) };
+const FORMATTERS = { number: num, inr: (v) => inrCompact(v), pct: (v) => pct(v), dec: (v) => Number(v).toLocaleString('en-IN', { maximumFractionDigits: 2 }) };
 
-function KpiCard({ label, value, format = 'number', delta, deltaUnit = '%', series, hint, icon: Icon }) {
+function KpiCard({ label, value, format = 'number', delta, deltaUnit = '%', series, hint, sub, icon: Icon }) {
   const animated = useCountUp(value);
   const up = delta != null && delta >= 0;
   return (
@@ -23,7 +23,9 @@ function KpiCard({ label, value, format = 'number', delta, deltaUnit = '%', seri
         {FORMATTERS[format](animated)}
       </div>
       <div className="kpi__bottom">
-        {delta != null && Number.isFinite(delta) ? (
+        {sub ? (
+          <span className="muted small kpi__sub">{sub}</span>
+        ) : delta != null && Number.isFinite(delta) ? (
           <span className={`delta ${up ? 'delta--up' : 'delta--down'}`}>
             {up ? <TrendingUp size={14} aria-hidden="true" /> : <TrendingDown size={14} aria-hidden="true" />}
             {up ? '+' : ''}

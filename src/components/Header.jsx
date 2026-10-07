@@ -4,9 +4,11 @@ import { NAV_ITEMS, SETTINGS_ITEM } from '../data/navigation';
 import GlobalSearch from './GlobalSearch';
 import Notifications from './Notifications';
 import ThemeToggle from './ThemeToggle';
+import { useData } from '../context/DataContext';
 
 export default function Header({ onMenu, ready }) {
   const { pathname } = useLocation();
+  const { kind } = useData();
   const page = [...NAV_ITEMS, SETTINGS_ITEM].find((n) => n.path === pathname) ?? NAV_ITEMS[0];
   return (
     <header className="header">
@@ -26,7 +28,7 @@ export default function Header({ onMenu, ready }) {
         <span className="profile__avatar" aria-hidden="true">BV</span>
         <span className="profile__text">
           <strong>Analyst</strong>
-          <small>Demo workspace</small>
+          <small>{kind === 'upload' ? 'Uploaded workbook' : 'Demo workspace'}</small>
         </span>
       </div>
     </header>
