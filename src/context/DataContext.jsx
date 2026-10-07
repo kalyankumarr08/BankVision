@@ -6,7 +6,7 @@ const DataContext = createContext(null);
 const DEFAULT_SOURCE = 'banking_data.xlsx (bundled demo dataset)';
 
 export function DataProvider({ children }) {
-  const [state, setState] = useState({ status: 'loading', model: null, error: null, source: DEFAULT_SOURCE });
+  const [state, setState] = useState({ status: 'loading', model: null, error: null, source: DEFAULT_SOURCE, kind: 'demo' });
 
   const load = useCallback(async () => {
     setState((s) => ({ ...s, status: 'loading', error: null }));
@@ -14,7 +14,7 @@ export function DataProvider({ children }) {
       const res = await fetch(DATA_URL);
       if (!res.ok) throw new Error(`Dataset request failed (HTTP ${res.status})`);
       const model = parseWorkbook(await res.arrayBuffer());
-      setState({ status: 'ready', model, error: null, source: DEFAULT_SOURCE });
+      setState({ status: 'ready', model, error: null, source: DEFAULT_SOURCE, kind: 'demo' });
     } catch (e) {
       setState((s) => ({ ...s, status: 'error', error: e.message || String(e) }));
     }
@@ -24,7 +24,7 @@ export function DataProvider({ children }) {
   const loadFile = useCallback(async (file) => {
     try {
       const model = parseWorkbook(await file.arrayBuffer());
-      setState({ status: 'ready', model, error: null, source: file.name });
+      setState({ status: 'ready', model, error: null, source: file.name, kind: 'upload' });
       return { ok: true };
     } catch (e) {
       return { ok: false, error: e.message || String(e) };
